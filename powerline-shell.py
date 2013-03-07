@@ -298,6 +298,20 @@ def add_root_indicator(powerline, error):
     powerline.append(Segment(powerline, powerline.root_indicator, fg, bg))
 
 
+def add_host_segment(powerline, cwd):
+    lblue = 117
+    red = 161
+    #cmd = "git branch 2> /dev/null | grep -e '\\*'"
+    p1 = subprocess.Popen(['hostname'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output = p1.communicate()[0].strip()
+    if len(output) == 0:
+        return False
+    bg = lblue
+    fg = 0
+    powerline.append(Segment(powerline, ' %s ' % output, fg, bg))
+    return True
+
+
 def get_valid_cwd():
     """ We check if the current working directory is valid or not. Typically
         happens when you checkout a different branch on git that doesn't have
@@ -332,9 +346,8 @@ if __name__ == '__main__':
 
     p = Powerline(mode=args.mode, shell=args.shell)
     cwd = get_valid_cwd()
+    add_host_segment(p, cwd)
     add_virtual_env_segment(p, cwd)
-    #p.append(Segment(p, ' \\u ', 250, 240))
-    #p.append(Segment(p, ' \\h ', 250, 238))
     add_cwd_segment(p, cwd, 5, args.cwd_only)
     add_repo_segment(p, cwd)
     add_root_indicator(p, args.prev_error)
