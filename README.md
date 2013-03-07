@@ -14,6 +14,12 @@ A [Powerline](https://github.com/Lokaltog/vim-powerline) like prompt for Bash/ZS
 *  Shows the current Python [virtualenv](http://www.virtualenv.org/) environment
 *  It's all done in a Python script, so you could go nuts with it
 
+# cBeach Fork
+
+*  Adding zsh specific functionality
+    *  Right Hand prompt
+*  I'm moving to a more modular design for editing the prompt information
+
 # Setup
 
 * This script uses ANSI color codes to display colors in a terminal. These are notoriously non-portable, so may not work for you out of the box, but try setting your $TERM to xterm-256color, because that works for me.
