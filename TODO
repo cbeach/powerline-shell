@@ -1,0 +1,6 @@
+Firgure the overall architecture as it relates to the RHS prompt
+    ◦ Am I just going to pass a named argument to the PowerLine class?
+    ◦ Should I subclass it?
+    ◦ Maybe make an entirely hew class?
+
+Keep modular segments in the back of my mind while I'm considering this
